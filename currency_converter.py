@@ -5,10 +5,16 @@ This script demonstrates API integration, error handling, and user input.
 """
 
 import requests
+import os
+from dotenv import load_dotenv # Import the new library
 
-# It's good practice to keep configuration variables at the top
-API_KEY = "07d63dc01f5b998d829cf628"
+# Load the environment variables from the .env file
+load_dotenv()
+
+# 1. Setup - Now get the key from the environment
+API_KEY = os.getenv('EXCHANGE_RATE_API_KEY') # This reads the key from the .env file
 BASE_URL = "https://v6.exchangerate-api.com/v6/"
+
 
 def convert_usd_to_inr(amount):
     """
